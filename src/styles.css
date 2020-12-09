@@ -1,0 +1,120 @@
+body {
+  font-family: "Sen", sans-serif;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.main {
+  padding: 25px 35px;
+  margin: 60px auto;
+  max-width: 60%;
+  min-width: 700px;
+  background-color: white;
+  border-radius: 1.5%;
+  border: 1px solid black;
+}
+
+.change-location {
+  padding: 20px 20px 20px 10px;
+}
+
+.change-location-input {
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button.buttons {
+  font-size: 16px;
+  padding: 5px 20px;
+  border-radius: 1%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 20%;
+  border: 1px solid black;
+}
+
+.current-city h1 {
+  font-size: 50px;
+  margin: 0 10px 10px 10px;
+}
+
+h2#current-date-time {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.current-city h1 {
+  font-weight: 600;
+}
+
+.current-temp h2 {
+  font-weight: 500;
+  font-size: 80px;
+  text-align: center;
+}
+
+h3#weather-description {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.second-column {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.fahrenheit-celcius h5 {
+  padding: 10px 10px 10px 0;
+}
+
+.fahrenheit-celcius h5 span {
+  cursor: pointer;
+}
+
+.units .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+}
+
+h3#weather-description {
+  font-size: 20px;
+  text-align: center;
+}
+
+.current-weather-specs ul {
+  font-size: 13px;
+  list-style: none;
+  padding-left: 15px;
+}
+
+.advice h4 {
+  font-size: 20px;
+  font-style: italic;
+  opacity: 80%;
+  text-align: center;
+}
+
+.card-body {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border: 0.1px solid rgb(56, 54, 54);
+}
+
+.forecast-days ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.forecast-title {
+  color: #416c9c;
+  text-align: center;
+}
+
+.forecast-icon {
+  max-width: 50px;
+}
