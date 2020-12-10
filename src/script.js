@@ -23,6 +23,7 @@ function formatDate(timestamp) {
   currentHour = currentHour % 12;
   return `${currentDay} ${currentHour}:${currentMinute} ${ampm}`;
 }
+
 function updateContent(response) {
   let city = `${response.data.name}, ${response.data.sys.country}`;
   let cityDisplay = document.querySelector("h1#current-city-display");
@@ -54,12 +55,12 @@ function updateContent(response) {
   let humidityDisplay = document.querySelector("#humidity");
   humidityDisplay.innerHTML = humidity;
 
-  let iconDisplay = document.querySelector("#icon");
-  iconDisplay.setAttribute(
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconDisplay.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
@@ -68,6 +69,7 @@ function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}`).then(updateContent);
 }
+
 function handleSubmit(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -75,8 +77,7 @@ function handleSubmit(event) {
   cityInput.value = "";
   search(city);
 }
-let cityInputForm = document.querySelector("#city-input-form");
-cityInputForm.addEventListener("submit", handleSubmit);
+
 function getLocalWeather(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -85,10 +86,14 @@ function getLocalWeather(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
   axios.get(url).then(updateContent);
 }
+
 function getGeoLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getLocalWeather);
 }
+
+let cityInputForm = document.querySelector("#city-input-form");
+cityInputForm.addEventListener("submit", handleSubmit);
 
 let myLocationButton = document.querySelector("#my-location-button");
 myLocationButton.addEventListener("click", getGeoLocation);
