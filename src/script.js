@@ -37,6 +37,8 @@ function updateContent(response) {
   let temperatureDisplay = document.querySelector("h2#current-temp");
   temperatureDisplay.innerHTML = temperature;
 
+  fahrenheitTemperature = response.data.main.temp;
+
   let weatherDescription = response.data.weather[0].description;
   let weatherDescriptionDisplay = document.querySelector(
     "h3#weather-description"
@@ -92,9 +94,39 @@ function getGeoLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocalWeather);
 }
 
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
+  let celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
+  let temperatureDisplay = document.querySelector("h2#current-temp");
+  temperatureDisplay.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
+  let temperatureDisplay = document.querySelector("h2#current-temp");
+  temperatureDisplay.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+//Global variables
+let fahrenheitTemperature = null;
+let celsiusTemperature = null;
+
 let cityInputForm = document.querySelector("#city-input-form");
 cityInputForm.addEventListener("submit", handleSubmit);
 
 let myLocationButton = document.querySelector("#my-location-button");
 myLocationButton.addEventListener("click", getGeoLocation);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
 search("New York");

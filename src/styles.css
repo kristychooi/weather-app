@@ -73,12 +73,12 @@ h3#weather-description {
   cursor: pointer;
 }
 
-.units .active {
+.fahrenheit-celsius .active {
   color: rgb(33, 33, 33);
   cursor: default;
 }
 
-.units .active:hover {
+.fahrenheit-celsius .active:hover {
   text-decoration: none;
 }
 
