@@ -6,7 +6,7 @@ body {
 .main {
   padding: 25px 35px;
   margin: 60px auto;
-  max-width: 60%;
+  max-width: 70%;
   min-width: 700px;
   background-color: white;
   border-radius: 1.5%;
@@ -36,8 +36,9 @@ button.buttons {
 }
 
 .current-city h1 {
-  font-size: 50px;
+  font-size: 45px;
   margin: 0 10px 10px 10px;
+  font-weight: 600;
 }
 
 h2#current-date-time {
@@ -45,32 +46,19 @@ h2#current-date-time {
   margin: 10px;
 }
 
-.current-city h1 {
-  font-weight: 600;
-}
-
 .current-temp h2 {
   font-weight: 500;
   font-size: 80px;
+}
+
+.current-weather-icon {
   text-align: center;
 }
 
 h3#weather-description {
   text-align: center;
   text-transform: capitalize;
-}
-
-.second-column {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.fahrenheit-celcius h5 {
-  padding: 10px 10px 10px 0;
-}
-
-.fahrenheit-celcius h5 span {
-  cursor: pointer;
+  font-size: 20px;
 }
 
 .fahrenheit-celsius .active {
@@ -82,39 +70,44 @@ h3#weather-description {
   text-decoration: none;
 }
 
-h3#weather-description {
-  font-size: 20px;
-  text-align: center;
-}
-
 .current-weather-specs ul {
   font-size: 13px;
   list-style: none;
   padding-left: 15px;
 }
 
-.advice h4 {
-  font-size: 20px;
-  font-style: italic;
-  opacity: 80%;
-  text-align: center;
-}
-
-.card-body {
+.card {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  border: 0.1px solid rgb(56, 54, 54);
+  border: 0.5px solid rgb(56, 54, 54);
+  padding: 20px 10px;
+  margin: 20px;
 }
 
-.forecast-days ul {
-  list-style: none;
-  padding: 20px;
+.weather-forecast {
+  margin: 20px;
 }
 
-.forecast-title {
-  color: #416c9c;
+.weather-forecast h3 {
+  font-size: 15px;
+  font-weight: 400;
   text-align: center;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 7px;
+  color: #3c4349;
 }
 
-.forecast-icon {
-  max-width: 50px;
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 60px;
+  width: 60px;
+}
+
+.weather-forecast-temperature {
+  text-align: center;
+  font-size: 18px;
+  height: auto;
+  line-height: 15px;
+  color: #3c4349;
 }

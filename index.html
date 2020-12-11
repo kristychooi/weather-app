@@ -54,100 +54,55 @@
           <h1 id="current-city-display"></h1>
         </div>
         <div>
-          <h2 id="current-date-time">Tuesday 11:45 AM</h2>
+          <h2 id="current-date-time"></h2>
         </div>
+
         <div class="row">
-          <div class="col-6">
-            <div class="row weather-details">
-              <div class="col-6">
-                <div class="current-temp">
-                  <h2 id="current-temp"></h2>
+          <div class="col-8">
+            <div class="row">
+              <div class="class col-5">
+                <!-- //column 1 -->
+                <div class="current-weather-icon">
+                  <img src="images/rainy-1.svg" alt="weather-icon" id="icon" />
                 </div>
                 <div class="weather-description">
                   <h3 id="weather-description"></h3>
                 </div>
               </div>
-              <div class="col-6 second-column">
+
+              <div class="class col-7">
+                <div class="current-temp">
+                  <h2 id="current-temp"></h2>
+                </div>
+
                 <div class="fahrenheit-celsius">
                   <h5>
                     <span class="units">
-                      <a href="#" id="fahrenheit-link" class="active">°F</a> |
+                      <a href="#" id="fahrenheit-link" class="active">°F</a>
+                      |
                       <a href="#" id="celsius-link">°C</a>
                     </span>
                   </h5>
-                  <div class="current-weather-specs">
-                    <ul>
-                      <li id="feels-like"></li>
-                      <li id="wind-speed"></li>
-                      <li id="humidity"></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="current-weather-icon">
-                  <img src="" alt="weather-icon" id="icon" />
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="advice">
-                  <h4>Don't forget your raincoat!</h4>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="card">
-              <div class="card-body forecast">
-                <div class="forecast-title">
-                  <h5>7-Day Forecast</h5>
-                </div>
-                <div class="forecast-days">
-                  <ul>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Tuesday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Wednesday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Thursday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Friday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Saturday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Sunday </span>
-                    </li>
-                    <li class="day-of-week">
-                      <img src="" class="forecast-icon" />
-                      <span class="forecast-temperature"> 45° </span>
-                      <span class="forecast-day"> Monday </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <div class="col-4">
+            <!-- column 2 -->
+            <div class="current-weather-specs">
+              <ul>
+                <li id="feels-like"></li>
+                <li id="wind-speed"></li>
+                <li id="humidity"></li>
+              </ul>
             </div>
           </div>
+
+          <!-- //row div close -->
+        </div>
+
+        <div class="card">
+          <div class="row weather-forecast" id="forecast"></div>
         </div>
       </div>
     </div>
