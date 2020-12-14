@@ -1,3 +1,10 @@
+//Global variables
+let fahrenheitTemperature = null;
+let celsiusTemperature = null;
+let feelsLike = null;
+let windSpeed = null;
+let forecastFahrenheit = null;
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -65,12 +72,16 @@ function updateCurrentContent(response) {
   weatherDescriptionDisplay.innerHTML = weatherDescription;
 
   let feelsLikeDisplay = document.querySelector("#feels-like");
-  let feelsLike = `FEELS LIKE: ${Math.round(response.data.main.feels_like)}°`;
-  feelsLikeDisplay.innerHTML = feelsLike;
+  feelsLike = response.data.main.feels_like;
+  feelsLikeDisplay.innerHTML = `FEELS LIKE: ${Math.round(feelsLike)}°`;
 
-  let windSpeed = `WIND: ${Math.round(response.data.wind.speed)} mph`;
+  fahrenheitFeelsLike = response.data.main.feels_like;
+
   let windSpeedDisplay = document.querySelector("#wind-speed");
-  windSpeedDisplay.innerHTML = windSpeed;
+  windSpeed = response.data.wind.speed;
+  windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeed)} mph`;
+
+  windspeedKM = response.data.wind.speed;
 
   let humidity = `HUMIDITY: ${Math.round(response.data.main.humidity)}%`;
   let humidityDisplay = document.querySelector("#humidity");
@@ -79,18 +90,23 @@ function updateCurrentContent(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `images/${response.data.weather[0].icon}.svg`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function updateForecast(response) {
+  console.log(response);
   let forecastDisplay = document.querySelector("#forecast");
   let forecast = null;
   forecastDisplay.innerHTML = null;
+  forecastFahrenheit = [];
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    iconForecastElements = `images/${response.data.list[index].weather[0].icon}.svg`;
+    forecastDescription = response.data.list[index].weather[0].description;
+    forecastFahrenheit[index] = forecast.main.temp_max;
 
     forecastDisplay.innerHTML += `
     <div class="col-2">     
@@ -98,10 +114,14 @@ function updateForecast(response) {
         ${formatHours(forecast.dt * 1000)}
       </h3>
       <div class="weather-forecast-temperature">
-      <img src= "http://openweathermap.org/img/wn/${
-        forecast.weather[0].icon
-      }@2x.png" alt="">
+      <img src= "${iconForecastElements}" alt="">
+      
+      <div id="forecast-temp">
           ${Math.round(forecast.main.temp_max)}° 
+      </div>
+      <br />
+      <div class="forecast-description">
+      ${forecastDescription}
       </div>
     </div> 
     `;
@@ -120,6 +140,8 @@ function search(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let cityInput = document.querySelector("#city-input");
   let city = cityInput.value;
   cityInput.value = "";
@@ -150,8 +172,19 @@ function displayCelciusTemperature(event) {
   temperatureDisplay.innerHTML = Math.round(celsiusTemperature);
 
   let feelsLikeDisplay = document.querySelector("#feels-like");
-  let feelsLikeCelcius = (40 - 32) * (5 / 9); //how do I get response from within this function?
+  let feelsLikeCelcius = (feelsLike - 32) * (5 / 9);
   feelsLikeDisplay.innerHTML = `FEELS LIKE: ${Math.round(feelsLikeCelcius)}°`;
+
+  let windSpeedDisplay = document.querySelector("#wind-speed");
+  let windSpeedKM = windSpeed * 1.609;
+  windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeedKM)} km/h`;
+
+  let celsiusForecastDisplay = document.querySelectorAll("#forecast-temp");
+  celsiusForecastDisplay.forEach(function (item, index) {
+    item.innerHTML = `${Math.round(
+      (forecastFahrenheit[index] - 32) * (5 / 9)
+    )}°`;
+  });
 }
 
 function displayFahrenheitTemperature(event) {
@@ -161,12 +194,20 @@ function displayFahrenheitTemperature(event) {
 
   let temperatureDisplay = document.querySelector("h2#current-temp");
   temperatureDisplay.innerHTML = Math.round(fahrenheitTemperature);
-}
 
-//Global variables
-let fahrenheitTemperature = null;
-let celsiusTemperature = null;
-// let feelsLike = null;
+  let feelsLikeDisplay = document.querySelector("#feels-like");
+  feelsLikeDisplay.innerHTML = `FEELS LIKE: ${Math.round(
+    fahrenheitFeelsLike
+  )}°`;
+
+  let windSpeedDisplay = document.querySelector("#wind-speed");
+  windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeed)} mph`;
+
+  let fahrenheitForecastDisplay = document.querySelectorAll("#forecast-temp");
+  fahrenheitForecastDisplay.forEach(function (item, index) {
+    item.innerHTML = `${Math.round(forecastFahrenheit[index])}°`;
+  });
+}
 
 let cityInputForm = document.querySelector("#city-input-form");
 cityInputForm.addEventListener("submit", handleSubmit);

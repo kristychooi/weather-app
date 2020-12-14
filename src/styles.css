@@ -1,14 +1,15 @@
 body {
   font-family: "Sen", sans-serif;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-color: #49beb7;
+  /* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%); */
 }
 
 .main {
   padding: 25px 35px;
-  margin: 60px auto;
+  margin: 60px auto 20px auto;
   max-width: 70%;
   min-width: 700px;
-  background-color: white;
+  background-color: #fcf9ea;
   border-radius: 1.5%;
   border: 1px solid black;
 }
@@ -22,6 +23,7 @@ body {
   width: 100%;
   padding: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 button.buttons {
@@ -33,26 +35,67 @@ button.buttons {
   transition: 0.4s;
   font-weight: 20%;
   border: 1px solid black;
+  background: #fecd1a;
+  border-radius: 10px;
 }
 
+.topper {
+  margin-left: 5px;
+}
 .current-city h1 {
   font-size: 45px;
-  margin: 0 10px 10px 10px;
+  margin: 10px;
   font-weight: 600;
+  color: #297ca0;
 }
 
 h2#current-date-time {
-  font-size: 30px;
+  font-size: 25px;
   margin: 10px;
 }
 
+.main-weather {
+  margin: 20px 40px 60px;
+}
+
+.current-temp {
+  display: inline;
+}
 .current-temp h2 {
-  font-weight: 500;
-  font-size: 80px;
+  font-weight: lighter;
+  font-size: 70px;
+  margin-top: 40px;
+  display: inline;
+}
+
+.fahrenheit-celsius {
+  display: inline;
+}
+
+.fahrenheit-celsius h5 {
+  display: inline;
+  position: relative;
+  bottom: 30px;
 }
 
 .current-weather-icon {
   text-align: center;
+}
+
+#icon {
+  min-width: 150px;
+}
+
+#wind-speed {
+  display: inline;
+}
+
+#wind-speed {
+  display: inline;
+}
+
+#humidity {
+  display: inline;
 }
 
 h3#weather-description {
@@ -71,9 +114,10 @@ h3#weather-description {
 }
 
 .current-weather-specs ul {
-  font-size: 13px;
+  font-size: 15px;
   list-style: none;
   padding-left: 15px;
+  margin-top: 15px;
 }
 
 .card {
@@ -104,10 +148,24 @@ h3#weather-description {
   width: 60px;
 }
 
+.forecast-description {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
 .weather-forecast-temperature {
   text-align: center;
   font-size: 18px;
   height: auto;
   line-height: 15px;
   color: #3c4349;
+}
+
+.cities-icons {
+  size: 10px;
+}
+
+.open-source {
+  text-align: center;
+  margin: 0 20px 30px 20px;
 }

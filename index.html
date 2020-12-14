@@ -35,6 +35,7 @@
                   autofocus="on"
                   class="change-location-input"
                   id="city-input"
+                  autocomplete="off"
                 />
               </div>
               <div class="col6">
@@ -50,51 +51,55 @@
             </div>
           </div>
         </form>
-        <div class="current-city">
-          <h1 id="current-city-display"></h1>
-        </div>
-        <div>
-          <h2 id="current-date-time"></h2>
+        <div class="topper">
+          <div class="current-city">
+            <h1 id="current-city-display"></h1>
+          </div>
+          <div>
+            <h2 id="current-date-time"></h2>
+          </div>
         </div>
 
-        <div class="row">
-          <div class="col-8">
-            <div class="row">
-              <div class="class col-5">
-                <!-- //column 1 -->
-                <div class="current-weather-icon">
-                  <img src="images/rainy-1.svg" alt="weather-icon" id="icon" />
-                </div>
-                <div class="weather-description">
-                  <h3 id="weather-description"></h3>
-                </div>
+        <div class="row main-weather">
+          <div class="row">
+            <div class="col-4">
+              <div class="current-weather-icon">
+                <img src="" alt="weather-icon" id="icon" />
               </div>
-
-              <div class="class col-7">
-                <div class="current-temp">
-                  <h2 id="current-temp"></h2>
-                </div>
-
-                <div class="fahrenheit-celsius">
-                  <h5>
-                    <span class="units">
-                      <a href="#" id="fahrenheit-link" class="active">°F</a>
-                      |
-                      <a href="#" id="celsius-link">°C</a>
-                    </span>
-                  </h5>
-                </div>
+              <div class="weather-description">
+                <h3 id="weather-description"></h3>
               </div>
             </div>
-          </div>
-          <div class="col-4">
-            <!-- column 2 -->
-            <div class="current-weather-specs">
-              <ul>
-                <li id="feels-like"></li>
-                <li id="wind-speed"></li>
-                <li id="humidity"></li>
-              </ul>
+
+            <div class="col-4">
+              <div class="current-temp">
+                <h2 id="current-temp"></h2>
+              </div>
+
+              <div class="fahrenheit-celsius">
+                <h5>
+                  <span class="units">
+                    <a href="#" id="fahrenheit-link" class="active">°F</a>
+                    |
+                    <a href="#" id="celsius-link">°C</a>
+                  </span>
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="current-weather-specs">
+                <ul>
+                  <i class="far fa-hand-point-right"></i>
+                  <li id="feels-like"></li>
+                  <br />
+                  <i class="fas fa-wind"></i>
+                  <li id="wind-speed"></li>
+                  <br />
+                  <i class="fas fa-tint"></i>
+                  <li id="humidity"></li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -105,7 +110,18 @@
           <div class="row weather-forecast" id="forecast"></div>
         </div>
       </div>
+
+      <div class="cities-icons">
+        <img src="images/seattle.png" alt="" />
+      </div>
+      <div class="open-source">
+        <a href="https://github.com/kristychooi/weather-app" target="blank"
+          >Open-source code</a
+        >
+        by Kristy Chooi
+      </div>
     </div>
+
     <script src="src/script.js"></script>
   </body>
 </html>
