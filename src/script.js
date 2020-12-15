@@ -4,6 +4,7 @@ let celsiusTemperature = null;
 let feelsLike = null;
 let windSpeed = null;
 let forecastFahrenheit = null;
+let apiCurrentResponse = null;
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -51,52 +52,54 @@ function formatHours(timestamp) {
 }
 
 function updateCurrentContent(response) {
-  let city = `${response.data.name}, ${response.data.sys.country}`;
+  console.log(response);
+  apiCurrentResponse = response.data;
+
+  let city = `${apiCurrentResponse.name}, ${apiCurrentResponse.sys.country}`;
   let cityDisplay = document.querySelector("h1#current-city-display");
   cityDisplay.innerHTML = city;
 
   let dateTimeDisplay = document.querySelector("#current-date-time");
-  let formattedDate = formatDate(response.data.dt * 1000);
+  let formattedDate = formatDate(apiCurrentResponse.dt * 1000);
   dateTimeDisplay.innerHTML = formattedDate;
 
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(apiCurrentResponse.main.temp);
   let temperatureDisplay = document.querySelector("h2#current-temp");
   temperatureDisplay.innerHTML = temperature;
 
-  fahrenheitTemperature = response.data.main.temp;
+  fahrenheitTemperature = apiCurrentResponse.main.temp;
 
-  let weatherDescription = response.data.weather[0].description;
+  let weatherDescription = apiCurrentResponse.weather[0].description;
   let weatherDescriptionDisplay = document.querySelector(
     "h3#weather-description"
   );
   weatherDescriptionDisplay.innerHTML = weatherDescription;
 
   let feelsLikeDisplay = document.querySelector("#feels-like");
-  feelsLike = response.data.main.feels_like;
+  feelsLike = apiCurrentResponse.main.feels_like;
   feelsLikeDisplay.innerHTML = `FEELS LIKE: ${Math.round(feelsLike)}°`;
 
-  fahrenheitFeelsLike = response.data.main.feels_like;
+  fahrenheitFeelsLike = apiCurrentResponse.main.feels_like;
 
   let windSpeedDisplay = document.querySelector("#wind-speed");
-  windSpeed = response.data.wind.speed;
+  windSpeed = apiCurrentResponse.wind.speed;
   windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeed)} mph`;
 
-  windspeedKM = response.data.wind.speed;
+  windspeedKM = apiCurrentResponse.wind.speed;
 
-  let humidity = `HUMIDITY: ${Math.round(response.data.main.humidity)}%`;
+  let humidity = `HUMIDITY: ${Math.round(apiCurrentResponse.main.humidity)}%`;
   let humidityDisplay = document.querySelector("#humidity");
   humidityDisplay.innerHTML = humidity;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `images/${response.data.weather[0].icon}.svg`
+    `images/${apiCurrentResponse.weather[0].icon}.svg`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", apiCurrentResponse.weather[0].description);
 }
 
 function updateForecast(response) {
-  console.log(response);
   let forecastDisplay = document.querySelector("#forecast");
   let forecast = null;
   forecastDisplay.innerHTML = null;
@@ -221,4 +224,4 @@ celsiusLink.addEventListener("click", displayCelciusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-search("New York");
+search("Sydney");

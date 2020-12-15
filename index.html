@@ -61,49 +61,56 @@
         </div>
 
         <div class="row main-weather">
-          <div class="row">
-            <div class="col-4">
-              <div class="current-weather-icon">
-                <img src="" alt="weather-icon" id="icon" />
-              </div>
-              <div class="weather-description">
-                <h3 id="weather-description"></h3>
-              </div>
+          <div class="col-4 icon-description">
+            <div class="current-icon">
+              <img src="" alt="weather-icon" id="icon" />
             </div>
-
-            <div class="col-4">
-              <div class="current-temp">
-                <h2 id="current-temp"></h2>
-              </div>
-
-              <div class="fahrenheit-celsius">
-                <h5>
-                  <span class="units">
-                    <a href="#" id="fahrenheit-link" class="active">°F</a>
-                    |
-                    <a href="#" id="celsius-link">°C</a>
-                  </span>
-                </h5>
-              </div>
-            </div>
-
-            <div class="col-4">
-              <div class="current-weather-specs">
-                <ul>
-                  <i class="far fa-hand-point-right"></i>
-                  <li id="feels-like"></li>
-                  <br />
-                  <i class="fas fa-wind"></i>
-                  <li id="wind-speed"></li>
-                  <br />
-                  <i class="fas fa-tint"></i>
-                  <li id="humidity"></li>
-                </ul>
-              </div>
+            <div class="weather-description">
+              <h3 id="weather-description"></h3>
             </div>
           </div>
 
-          <!-- //row div close -->
+          <div class="col-4 temp-units">
+            <div class="current-temp">
+              <h2 id="current-temp"></h2>
+            </div>
+
+            <div class="fahrenheit-celsius">
+              <h5>
+                <span class="units">
+                  <a href="#" id="fahrenheit-link" class="active">°F</a>
+                  |
+                  <a href="#" id="celsius-link">°C</a>
+                </span>
+              </h5>
+            </div>
+          </div>
+
+          <div class="col-4 specs">
+            <div class="current-weather-specs">
+              <ul>
+                <li>
+                  <div>
+                    <i class="far fa-hand-point-right"></i>
+                    <span id="feels-like"></span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <i class="fas fa-wind"></i>
+                    <span id="wind-speed"></span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <i class="fas fa-tint"></i>
+
+                    <span id="humidity"></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="card">
@@ -111,17 +118,19 @@
         </div>
       </div>
 
-      <div class="cities-icons">
-        <img src="images/seattle.png" alt="" />
-      </div>
       <div class="open-source">
         <a href="https://github.com/kristychooi/weather-app" target="blank"
           >Open-source code</a
         >
-        by Kristy Chooi
+        by
+        <a href="https://www.linkedin.com/in/kristychooi/" target="blank">
+          Kristy Chooi
+        </a>
       </div>
     </div>
 
     <script src="src/script.js"></script>
   </body>
 </html>
+
+<!-- Icons provided by amCharts -->
