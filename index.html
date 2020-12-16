@@ -25,112 +25,184 @@
   <body>
     <div class="container">
       <div class="main">
-        <form id="city-input-form">
-          <div class="change-location">
-            <div class="row">
-              <div class="col-6">
-                <input
-                  type="text"
-                  placeholder="Change location"
-                  autofocus="on"
-                  class="change-location-input"
-                  id="city-input"
-                  autocomplete="off"
-                />
+        <div class="row">
+          <div class="col-10">
+            <form id="city-input-form">
+              <div class="change-location">
+                <div class="row">
+                  <div class="col-6">
+                    <input
+                      type="text"
+                      placeholder="Change location"
+                      autofocus="on"
+                      class="change-location-input"
+                      id="city-input"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="col6">
+                    <button class="buttons">
+                      <i class="fas fa-search-location"></i>
+                      Search
+                    </button>
+                    <button class="buttons" id="my-location-button">
+                      <i class="fas fa-location-arrow"></i>
+                      My Location
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="col6">
-                <button class="buttons">
-                  <i class="fas fa-search-location"></i>
-                  Search
-                </button>
-                <button class="buttons" id="my-location-button">
-                  <i class="fas fa-location-arrow"></i>
-                  My Location
-                </button>
+            </form>
+            <div class="topper">
+              <div class="current-city">
+                <h1 id="current-city-display"></h1>
+              </div>
+              <div>
+                <h2 id="current-date-time"></h2>
               </div>
             </div>
-          </div>
-        </form>
-        <div class="topper">
-          <div class="current-city">
-            <h1 id="current-city-display"></h1>
-          </div>
-          <div>
-            <h2 id="current-date-time"></h2>
-          </div>
-        </div>
 
-        <div class="row main-weather">
-          <div class="col-4 icon-description">
-            <div class="current-icon">
-              <img src="" alt="weather-icon" id="icon" />
+            <div class="row main-weather">
+              <div class="col-4 icon-description">
+                <div class="current-icon">
+                  <img src="" alt="weather-icon" id="icon" />
+                </div>
+                <div class="weather-description">
+                  <h3 id="weather-description"></h3>
+                </div>
+              </div>
+
+              <div class="col-4 temp-units">
+                <div class="current-temp">
+                  <h2 id="current-temp"></h2>
+                </div>
+
+                <div class="fahrenheit-celsius">
+                  <h5>
+                    <span class="units">
+                      <a href="#" id="fahrenheit-link" class="active">°F</a>
+                      |
+                      <a href="#" id="celsius-link">°C</a>
+                    </span>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="col-4 specs">
+                <div class="current-weather-specs">
+                  <ul>
+                    <li>
+                      <div>
+                        <i class="far fa-hand-point-right"></i>
+                        <span id="feels-like"></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <i class="fas fa-wind"></i>
+                        <span id="wind-speed"></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <i class="fas fa-tint"></i>
+
+                        <span id="humidity"></span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="weather-description">
-              <h3 id="weather-description"></h3>
-            </div>
-          </div>
 
-          <div class="col-4 temp-units">
-            <div class="current-temp">
-              <h2 id="current-temp"></h2>
-            </div>
-
-            <div class="fahrenheit-celsius">
-              <h5>
-                <span class="units">
-                  <a href="#" id="fahrenheit-link" class="active">°F</a>
-                  |
-                  <a href="#" id="celsius-link">°C</a>
-                </span>
-              </h5>
-            </div>
-          </div>
-
-          <div class="col-4 specs">
-            <div class="current-weather-specs">
-              <ul>
-                <li>
-                  <div>
-                    <i class="far fa-hand-point-right"></i>
-                    <span id="feels-like"></span>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <i class="fas fa-wind"></i>
-                    <span id="wind-speed"></span>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <i class="fas fa-tint"></i>
-
-                    <span id="humidity"></span>
-                  </div>
-                </li>
-              </ul>
+            <div class="card">
+              <div class="row weather-forecast" id="forecast"></div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="row weather-forecast" id="forecast"></div>
+          <div class="col-2 city-icon-column">
+            <a href="#">
+              <img
+                id="seattle-icon"
+                class="city-icons"
+                alt="seattle-icon"
+                src="images/seattle.png"
+                width="100"
+                height="100"
+              />
+            </a>
+            <a href="#">
+              <img
+                id="sydney-icon"
+                class="city-icons"
+                alt="sydney-icon"
+                src="images/sydney.png"
+                width="100"
+                height="100"
+              />
+            </a>
+            <a href="#">
+              <img
+                id="paris-icon"
+                class="city-icons"
+                alt="paris-icon"
+                src="images/paris.png"
+                width="100"
+                height="100"
+              />
+            </a>
+            <a href="#">
+              <img
+                id="newyork-icon"
+                class="city-icons"
+                alt="newyork-icon"
+                src="images/newyork.png"
+                width="100"
+                height="100"
+              />
+            </a>
+            <a href="#">
+              <img
+                id="london-icon"
+                class="city-icons"
+                alt="londons-icon"
+                src="images/london.png"
+                width="100"
+                height="100"
+              />
+            </a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="open-source">
-        <a href="https://github.com/kristychooi/weather-app" target="blank"
-          >Open-source code</a
-        >
-        by
-        <a href="https://www.linkedin.com/in/kristychooi/" target="blank">
-          Kristy Chooi
-        </a>
-      </div>
+    <div class="open-source">
+      <a href="https://github.com/kristychooi/weather-app" target="blank"
+        >Open-source code</a
+      >
+      by
+      <a href="https://www.linkedin.com/in/kristychooi/" target="blank">
+        Kristy Chooi
+      </a>
+    </div>
+    <div>
+      <small>
+        <p id="icon-attribution">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </p>
+      </small>
     </div>
 
     <script src="src/script.js"></script>
   </body>
 </html>
 
-<!-- Icons provided by amCharts -->
+<!-- 
+Icons provided by amCharts -->

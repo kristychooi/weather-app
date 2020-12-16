@@ -212,6 +212,31 @@ function displayFahrenheitTemperature(event) {
   });
 }
 
+function searchSeattle() {
+  city = "Seattle";
+  search(city);
+}
+
+function searchSydney() {
+  city = "Sydney";
+  search(city);
+}
+
+function searchParis() {
+  city = "Paris";
+  search(city);
+}
+
+function searchNewYork() {
+  city = "New York";
+  search(city);
+}
+
+function searchLondon() {
+  city = "London";
+  search(city);
+}
+
 let cityInputForm = document.querySelector("#city-input-form");
 cityInputForm.addEventListener("submit", handleSubmit);
 
@@ -224,4 +249,19 @@ celsiusLink.addEventListener("click", displayCelciusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-search("Sydney");
+let seattleIcon = document.querySelector("#seattle-icon");
+seattleIcon.addEventListener("click", searchSeattle);
+
+let sydneyIcon = document.querySelector("#sydney-icon");
+sydneyIcon.addEventListener("click", searchSydney);
+
+let parisIcon = document.querySelector("#paris-icon");
+parisIcon.addEventListener("click", searchParis);
+
+let newyorkIcon = document.querySelector("#newyork-icon");
+newyorkIcon.addEventListener("click", searchNewYork);
+
+let londonIcon = document.querySelector("#london-icon");
+londonIcon.addEventListener("click", searchLondon);
+
+search("New York");

@@ -9,7 +9,7 @@ body {
   padding: 25px 35px;
   margin: 60px auto 20px auto;
   max-width: 70%;
-  min-width: 800px;
+  min-width: 1000px;
   background-color: #fcf9ea;
   border-radius: 1.5%;
   border: 3px solid black;
@@ -65,13 +65,14 @@ h2#current-date-time {
 .main-weather {
   margin: 20px 40px 30px 50px;
 }
-
+/* 
+.icon-description {
+  position: relative;
+} */
 #icon {
-  min-width: 170px;
+  min-width: 200px;
   display: block;
   margin: 0 auto;
-  position: relative;
-  top: 10;
 }
 
 h3#weather-description {
@@ -86,6 +87,7 @@ h3#weather-description {
 
 .current-temp {
   display: inline;
+  margin-top: 90px;
 }
 
 .current-temp h2 {
@@ -167,11 +169,24 @@ h3#weather-description {
   color: #3c4349;
 }
 
-.cities-icons {
-  size: 10px;
+.city-icon-column {
+  margin-top: 60px;
+}
+.city-icons {
+  margin: 10px;
+  width: 90px;
+  height: 90px;
 }
 
+.city-icons:hover {
+  opacity: 0.7;
+}
 .open-source {
   text-align: center;
-  margin: 0 20px 30px 20px;
+  margin: 0 20px 100px 20px;
+}
+
+p#icon-attribution {
+  color: rgb(56, 54, 54);
+  text-align: center;
 }
