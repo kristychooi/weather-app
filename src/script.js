@@ -31,6 +31,9 @@ function updateCurrentContent(response) {
 
   fahrenheitFeelsLike = apiCurrentResponse.main.feels_like;
 
+  // let chanceOfRainDisplay = document.querySelector("#change-of-rain");
+  // chanceOfRainDisplay =
+
   let windSpeedDisplay = document.querySelector("#wind-speed");
   windSpeed = apiCurrentResponse.wind.speed;
   windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeed)} mph`;
@@ -49,7 +52,18 @@ function updateCurrentContent(response) {
   iconElement.setAttribute("alt", apiCurrentResponse.weather[0].description);
 }
 
+function getLocalWeather(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let units = "imperial";
+  let apiKey = "080f1afef2a9a2ea9659284510c483ad";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  axios.get(url).then(updateCurrentContent);
+}
+
 function updateForecast(response) {
+  // let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
+
   let forecastDisplay = document.querySelector("#forecast");
   let forecast = null;
   forecastDisplay.innerHTML = null;
@@ -64,7 +78,7 @@ function updateForecast(response) {
     forecastDisplay.innerHTML += `
     <div class="col-2">     
       <h3>
-        ${moment(forecast.dt * 1000).format("h:mm A")}
+        ${moment(forecast.dt_txt).format("h:mm A")}
       </h3>
       <div class="weather-forecast-temperature">
       <img src= "${iconForecastElements}" alt="">
@@ -82,7 +96,7 @@ function updateForecast(response) {
 }
 
 function updateLocalTime(response) {
-  console.log(response.data.location.localtime);
+  // console.log(response.data.location.localtime);
 
   let dateTimeDisplay = document.querySelector("#current-date-time");
   let formattedDate = moment(response.data.location.localtime).format(
@@ -112,15 +126,6 @@ function handleSubmit(event) {
   let city = cityInput.value;
   cityInput.value = "";
   search(city);
-}
-
-function getLocalWeather(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let units = "imperial";
-  let apiKey = "080f1afef2a9a2ea9659284510c483ad";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-  axios.get(url).then(updateContent);
 }
 
 function getGeoLocation(event) {
@@ -175,40 +180,10 @@ function displayFahrenheitTemperature(event) {
   });
 }
 
-function searchNewYork() {
-  city = "New York";
+function searchIconCity(event) {
+  city = event.target.name;
   search(city);
 }
-
-function searchSydney() {
-  city = "Sydney";
-  search(city);
-}
-
-function searchToronto() {
-  city = "Toronto";
-  search(city);
-}
-
-function searchParis() {
-  city = "Paris";
-  search(city);
-}
-
-function searchLondon() {
-  city = "London";
-  search(city);
-}
-
-function searchSeattle() {
-  city = "Seattle";
-  search(city);
-}
-
-// function searchIconCity(event) {
-//   let city = ${#seattle};
-//   search(city);
-// }
 
 let cityInputForm = document.querySelector("#city-input-form");
 cityInputForm.addEventListener("submit", handleSubmit);
@@ -222,22 +197,10 @@ celsiusLink.addEventListener("click", displayCelciusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-let newyorkIcon = document.querySelector("#newyork-icon");
-newyorkIcon.addEventListener("click", searchNewYork);
-
-let sydneyIcon = document.querySelector("#sydney-icon");
-sydneyIcon.addEventListener("click", searchSydney);
-
-let torontoIcon = document.querySelector("#toronto-icon");
-torontoIcon.addEventListener("click", searchToronto);
-
-let parisIcon = document.querySelector("#paris-icon");
-parisIcon.addEventListener("click", searchParis);
-
-let londonIcon = document.querySelector("#london-icon");
-londonIcon.addEventListener("click", searchLondon);
-
-// let seattleIcon = document.querySelector("#seattle-icon");
-// seattleIcon.addEventListener("click", searchIconCity);
+let cityIcons = document.querySelectorAll(".city-icons");
+cityIcons.forEach(function (cityIcon) {
+  // console.log("adding an event listener for " + cityIcon.name);
+  cityIcon.addEventListener("click", searchIconCity);
+});
 
 search("Seattle");
