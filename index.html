@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Sen&display=swap"
       rel="stylesheet"
     />
+    <script src="src/moment.js"></script>
     <script
       src="https://kit.fontawesome.com/8dd7f916e1.js"
       crossorigin="anonymous"
@@ -26,11 +27,11 @@
     <div class="container">
       <div class="main">
         <div class="row">
-          <div class="col-10">
+          <div class="col-10 weather-body">
             <form id="city-input-form">
               <div class="change-location">
                 <div class="row">
-                  <div class="col-6">
+                  <div class="col-7">
                     <input
                       type="text"
                       placeholder="Change location"
@@ -40,8 +41,8 @@
                       autocomplete="off"
                     />
                   </div>
-                  <div class="col6">
-                    <button class="buttons">
+                  <div class="col-5 button-section">
+                    <button class="buttons" id="search-button">
                       <i class="fas fa-search-location"></i>
                       Search
                     </button>
@@ -90,27 +91,32 @@
 
               <div class="col-4 specs">
                 <div class="current-weather-specs">
-                  <ul>
-                    <li>
-                      <div>
+                  <table>
+                    <tr>
+                      <td>
                         <i class="far fa-hand-point-right"></i>
+                      </td>
+                      <td>
                         <span id="feels-like"></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
                         <i class="fas fa-wind"></i>
+                      </td>
+                      <td>
                         <span id="wind-speed"></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
                         <i class="fas fa-tint"></i>
-
+                      </td>
+                      <td>
                         <span id="humidity"></span>
-                      </div>
-                    </li>
-                  </ul>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
@@ -123,20 +129,32 @@
           <div class="col-2 city-icon-column">
             <a href="#">
               <img
-                id="seattle-icon"
+                id="newyork-icon"
                 class="city-icons"
-                alt="seattle-icon"
-                src="images/seattle.png"
+                alt="newyork-icon"
+                src="images/newyork.png"
                 width="100"
                 height="100"
               />
             </a>
+
             <a href="#">
               <img
                 id="sydney-icon"
                 class="city-icons"
                 alt="sydney-icon"
                 src="images/sydney.png"
+                width="100"
+                height="100"
+              />
+            </a>
+
+            <a href="#">
+              <img
+                id="toronto-icon"
+                class="city-icons"
+                alt="toronto-icon"
+                src="images/toronto.png"
                 width="100"
                 height="100"
               />
@@ -153,22 +171,23 @@
             </a>
             <a href="#">
               <img
-                id="newyork-icon"
-                class="city-icons"
-                alt="newyork-icon"
-                src="images/newyork.png"
-                width="100"
-                height="100"
-              />
-            </a>
-            <a href="#">
-              <img
                 id="london-icon"
                 class="city-icons"
                 alt="londons-icon"
                 src="images/london.png"
                 width="100"
                 height="100"
+              />
+            </a>
+            <a href="#">
+              <img
+                id="seattle-icon"
+                class="city-icons"
+                alt="seattle-icon"
+                src="images/seattle.png"
+                width="100"
+                height="100"
+                name="seattle"
               />
             </a>
           </div>

@@ -15,8 +15,12 @@ body {
   border: 3px solid black;
 }
 
+.weather-body {
+  margin-top: 10px;
+}
 .change-location {
   padding: 20px 20px 20px 10px;
+  margin-left: 20px;
 }
 
 .change-location-input {
@@ -25,6 +29,10 @@ body {
   padding: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+
+.button-section {
+  padding-left: 0;
 }
 
 button.buttons {
@@ -42,13 +50,12 @@ button.buttons {
 }
 
 button.buttons:hover {
-  opacity: 0.7;
-  background-color: #f4ea29;
+  opacity: 0.6;
 }
 
 .topper {
   margin-top: 15px;
-  margin-left: 5px;
+  margin-left: 20px;
 }
 .current-city h1 {
   font-size: 45px;
@@ -65,12 +72,9 @@ h2#current-date-time {
 .main-weather {
   margin: 20px 40px 30px 50px;
 }
-/* 
-.icon-description {
-  position: relative;
-} */
+
 #icon {
-  min-width: 200px;
+  min-width: 220px;
   display: block;
   margin: 0 auto;
 }
@@ -78,9 +82,13 @@ h2#current-date-time {
 h3#weather-description {
   text-align: center;
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 22px;
 }
 
+.temp-units,
+.specs {
+  margin-top: 15px;
+}
 .temp-units {
   text-align: center;
 }
@@ -115,17 +123,10 @@ h3#weather-description {
   text-decoration: none;
 }
 
-.current-weather-specs ul {
+.current-weather-specs {
   font-size: 15px;
-  list-style: none;
-  padding-left: 15px;
-  margin-top: 15px;
-  padding-right: 0;
-  line-height: 20px;
-}
-
-.current-weather-specs li {
-  margin: 2px;
+  margin-left: 30px;
+  padding-top: 15px;
 }
 
 .card {
@@ -170,17 +171,20 @@ h3#weather-description {
 }
 
 .city-icon-column {
-  margin-top: 60px;
+  margin-top: 30px;
 }
+
 .city-icons {
-  margin: 10px;
+  margin: 12px;
   width: 90px;
   height: 90px;
+  transition: all 200ms ease-in-out;
 }
 
 .city-icons:hover {
-  opacity: 0.7;
+  opacity: 0.6;
 }
+
 .open-source {
   text-align: center;
   margin: 0 20px 100px 20px;

@@ -6,62 +6,12 @@ let windSpeed = null;
 let forecastFahrenheit = null;
 let apiCurrentResponse = null;
 
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let currentDay = days[date.getDay()];
-  let currentMinute = date.getMinutes();
-  if (currentMinute < 10) {
-    currentMinute = `0${currentMinute}`;
-  }
-  let currentHour = date.getHours();
-  if (currentHour >= 12) {
-    ampm = "PM";
-  } else {
-    ampm = "AM";
-  }
-  currentHour = currentHour % 12;
-  return `${currentDay} ${currentHour}:${currentMinute} ${ampm}`;
-}
-
-function formatHours(timestamp) {
-  let date = new Date(timestamp);
-
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let hours = date.getHours();
-
-  if (hours >= 12) {
-    ampm = "pm";
-  } else {
-    ampm = "am";
-  }
-  hours = hours % 12;
-
-  return `${hours}:${minutes}${ampm}`;
-}
-
 function updateCurrentContent(response) {
-  console.log(response);
   apiCurrentResponse = response.data;
 
   let city = `${apiCurrentResponse.name}, ${apiCurrentResponse.sys.country}`;
   let cityDisplay = document.querySelector("h1#current-city-display");
   cityDisplay.innerHTML = city;
-
-  let dateTimeDisplay = document.querySelector("#current-date-time");
-  let formattedDate = formatDate(apiCurrentResponse.dt * 1000);
-  dateTimeDisplay.innerHTML = formattedDate;
 
   let temperature = Math.round(apiCurrentResponse.main.temp);
   let temperatureDisplay = document.querySelector("h2#current-temp");
@@ -114,7 +64,7 @@ function updateForecast(response) {
     forecastDisplay.innerHTML += `
     <div class="col-2">     
       <h3>
-        ${formatHours(forecast.dt * 1000)}
+        ${moment(forecast.dt * 1000).format("h:mm A")}
       </h3>
       <div class="weather-forecast-temperature">
       <img src= "${iconForecastElements}" alt="">
@@ -131,6 +81,16 @@ function updateForecast(response) {
   }
 }
 
+function updateLocalTime(response) {
+  console.log(response.data.location.localtime);
+
+  let dateTimeDisplay = document.querySelector("#current-date-time");
+  let formattedDate = moment(response.data.location.localtime).format(
+    "dddd MMMM Do YYYY, h:mm A"
+  );
+  dateTimeDisplay.innerHTML = formattedDate;
+}
+
 function search(city) {
   let apiKey = "080f1afef2a9a2ea9659284510c483ad";
   let units = "imperial";
@@ -139,6 +99,9 @@ function search(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}`).then(updateForecast);
+
+  apiUrl = `http://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
+  axios.get(`${apiUrl}`).then(updateLocalTime);
 }
 
 function handleSubmit(event) {
@@ -212,8 +175,8 @@ function displayFahrenheitTemperature(event) {
   });
 }
 
-function searchSeattle() {
-  city = "Seattle";
+function searchNewYork() {
+  city = "New York";
   search(city);
 }
 
@@ -222,13 +185,13 @@ function searchSydney() {
   search(city);
 }
 
-function searchParis() {
-  city = "Paris";
+function searchToronto() {
+  city = "Toronto";
   search(city);
 }
 
-function searchNewYork() {
-  city = "New York";
+function searchParis() {
+  city = "Paris";
   search(city);
 }
 
@@ -236,6 +199,16 @@ function searchLondon() {
   city = "London";
   search(city);
 }
+
+function searchSeattle() {
+  city = "Seattle";
+  search(city);
+}
+
+// function searchIconCity(event) {
+//   let city = ${#seattle};
+//   search(city);
+// }
 
 let cityInputForm = document.querySelector("#city-input-form");
 cityInputForm.addEventListener("submit", handleSubmit);
@@ -249,19 +222,22 @@ celsiusLink.addEventListener("click", displayCelciusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-let seattleIcon = document.querySelector("#seattle-icon");
-seattleIcon.addEventListener("click", searchSeattle);
+let newyorkIcon = document.querySelector("#newyork-icon");
+newyorkIcon.addEventListener("click", searchNewYork);
 
 let sydneyIcon = document.querySelector("#sydney-icon");
 sydneyIcon.addEventListener("click", searchSydney);
 
+let torontoIcon = document.querySelector("#toronto-icon");
+torontoIcon.addEventListener("click", searchToronto);
+
 let parisIcon = document.querySelector("#paris-icon");
 parisIcon.addEventListener("click", searchParis);
-
-let newyorkIcon = document.querySelector("#newyork-icon");
-newyorkIcon.addEventListener("click", searchNewYork);
 
 let londonIcon = document.querySelector("#london-icon");
 londonIcon.addEventListener("click", searchLondon);
 
-search("New York");
+// let seattleIcon = document.querySelector("#seattle-icon");
+// seattleIcon.addEventListener("click", searchIconCity);
+
+search("Seattle");
