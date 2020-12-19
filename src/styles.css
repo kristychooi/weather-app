@@ -93,6 +93,10 @@ h3#weather-description {
   text-align: center;
 }
 
+.specs {
+  padding-right: 0;
+}
+
 .current-temp {
   display: inline;
   margin-top: 90px;
@@ -124,16 +128,16 @@ h3#weather-description {
 }
 
 .current-weather-specs {
-  font-size: 15px;
-  margin-left: 30px;
+  font-size: 14px;
+  margin-left: 10px;
   padding-top: 15px;
 }
 
 .card {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   border: 0.5px solid rgb(56, 54, 54);
-  padding: 20px 10px;
-  margin: 20px;
+  padding: 15px 10px;
+  margin: 15px 10px;
 }
 
 .weather-forecast {
@@ -157,6 +161,19 @@ h3#weather-description {
   width: 60px;
 }
 
+#forecast-temp {
+  margin-top: 8px;
+}
+
+#max-temp {
+  font-size: 18px;
+}
+
+#min-temp {
+  font-size: 16px;
+  color: #686464;
+}
+
 .forecast-description {
   font-size: 15px;
   margin-bottom: 10px;
@@ -171,7 +188,7 @@ h3#weather-description {
 }
 
 .city-icon-column {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .city-icons {
