@@ -211,3 +211,13 @@ p#icon-attribution {
   color: rgb(56, 54, 54);
   text-align: center;
 }
+
+/* when loading */
+.loader-body {
+  display: none;
+}
+
+.loading-icon {
+  text-align: center;
+  padding: 80px 0;
+}

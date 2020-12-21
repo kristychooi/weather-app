@@ -41,6 +41,10 @@ function updateCurrentContent() {
   //display temperature functions
   getForecast();
   displayFahrenheitTemperature();
+
+  //initial load
+  document.querySelector(".loading-icon").style.display = "none";
+  document.querySelector(".loader-body").style.display = "block";
 }
 
 function getForecast() {
@@ -49,8 +53,6 @@ function getForecast() {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
-
   let forecastDisplay = document.querySelector("#forecast");
   let forecast = null;
   forecastDisplay.innerHTML = null;
@@ -182,6 +184,7 @@ function search(city) {
 
   //call current time API
   apiUrl = `http://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
+  console.log("oops");
   axios.get(`${apiUrl}`).then(updateLocalTime);
 }
 

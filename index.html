@@ -54,83 +54,93 @@
                 </div>
               </div>
             </form>
-            <div class="topper">
-              <div class="current-city">
-                <h1 id="current-city-display"></h1>
-              </div>
-              <div>
-                <h2 id="current-date-time"></h2>
-              </div>
+
+            <div class="loading-icon">
+              <img
+                src="images/loading-icon.svg"
+                alt="loading-icon"
+                class="loading-icon"
+              />
             </div>
-
-            <div class="row main-weather">
-              <div class="col-4 icon-description">
-                <div class="current-icon">
-                  <img src="" alt="weather-icon" id="icon" />
+            <div class="loader-body">
+              <div class="topper">
+                <div class="current-city">
+                  <h1 id="current-city-display"></h1>
                 </div>
-                <div class="weather-description">
-                  <h3 id="weather-description"></h3>
-                </div>
-              </div>
-
-              <div class="col-4 temp-units">
-                <div class="current-temp">
-                  <h2 id="current-temp"></h2>
-                </div>
-
-                <div class="fahrenheit-celsius">
-                  <h5>
-                    <span class="units">
-                      <a href="#" id="fahrenheit-link" class="active">°F</a>
-                      |
-                      <a href="#" id="celsius-link">°C</a>
-                    </span>
-                  </h5>
+                <div>
+                  <h2 id="current-date-time"></h2>
                 </div>
               </div>
 
-              <div class="col-4 specs">
-                <div class="current-weather-specs">
-                  <table>
-                    <tr>
-                      <td>
-                        <i class="far fa-hand-point-right"></i>
-                      </td>
-                      <td>
-                        <span id="feels-like"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <i class="fas fa-umbrella"></i>
-                      </td>
-                      <td>
-                        <span id="chance-of-rain"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <i class="fas fa-wind"></i>
-                      </td>
-                      <td>
-                        <span id="wind-speed"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <i class="fas fa-tint"></i>
-                      </td>
-                      <td>
-                        <span id="humidity"></span>
-                      </td>
-                    </tr>
-                  </table>
+              <div class="row main-weather">
+                <div class="col-4 icon-description">
+                  <div class="current-icon">
+                    <img src="" alt="weather-icon" id="icon" />
+                  </div>
+                  <div class="weather-description">
+                    <h3 id="weather-description"></h3>
+                  </div>
+                </div>
+
+                <div class="col-4 temp-units">
+                  <div class="current-temp">
+                    <h2 id="current-temp"></h2>
+                  </div>
+
+                  <div class="fahrenheit-celsius">
+                    <h5>
+                      <span class="units">
+                        <a href="#" id="fahrenheit-link" class="active">°F</a>
+                        |
+                        <a href="#" id="celsius-link">°C</a>
+                      </span>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="col-4 specs">
+                  <div class="current-weather-specs">
+                    <table>
+                      <tr>
+                        <td>
+                          <i class="far fa-hand-point-right"></i>
+                        </td>
+                        <td>
+                          <span id="feels-like"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fas fa-umbrella"></i>
+                        </td>
+                        <td>
+                          <span id="chance-of-rain"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fas fa-wind"></i>
+                        </td>
+                        <td>
+                          <span id="wind-speed"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fas fa-tint"></i>
+                        </td>
+                        <td>
+                          <span id="humidity"></span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="card">
-              <div class="row weather-forecast" id="forecast"></div>
+              <div class="card loader-forecast">
+                <div class="row weather-forecast" id="forecast"></div>
+              </div>
             </div>
           </div>
 
