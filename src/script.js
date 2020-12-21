@@ -124,7 +124,6 @@ function updateLocalTime(response) {
     "dddd MMMM Do YYYY, h:mm A"
   );
   dateTimeDisplay.innerHTML = formattedDate;
-  console.log(response.data.location);
 }
 
 function getGeoLocation(event) {
