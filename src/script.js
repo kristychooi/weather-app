@@ -124,6 +124,7 @@ function updateLocalTime(response) {
     "dddd MMMM Do YYYY, h:mm A"
   );
   dateTimeDisplay.innerHTML = formattedDate;
+  console.log(response.data.location);
 }
 
 function getGeoLocation(event) {
@@ -183,7 +184,7 @@ function search(city) {
   axios.get(`${apiUrl}`).then(setApiResponse);
 
   //calls current time API
-  apiUrl = `https://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
+  apiUrl = `http://api.weatherapi.com/v1/timezone.json?key=acc92b71f8734f78b34181730202112&q=${city}`;
   axios.get(`${apiUrl}`).then(updateLocalTime);
 }
 
