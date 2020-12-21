@@ -183,8 +183,7 @@ function search(city) {
   axios.get(`${apiUrl}`).then(setApiResponse);
 
   //call current time API
-  apiUrl = `http://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
-  console.log("oops");
+  apiUrl = `https://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
   axios.get(`${apiUrl}`).then(updateLocalTime);
 }
 
