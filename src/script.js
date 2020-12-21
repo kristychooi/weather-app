@@ -183,7 +183,7 @@ function search(city) {
   axios.get(`${apiUrl}`).then(setApiResponse);
 
   //calls current time API
-  apiUrl = `http://api.weatherapi.com/v1/timezone.json?key=acc92b71f8734f78b34181730202112&q=${city}`;
+  apiUrl = `https://api.weatherapi.com/v1/timezone.json?key=acc92b71f8734f78b34181730202112&q=${city}`;
   axios.get(`${apiUrl}`).then(updateLocalTime);
 }
 
