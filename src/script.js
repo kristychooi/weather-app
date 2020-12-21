@@ -178,11 +178,11 @@ function searchIconCity(event) {
 }
 
 function search(city) {
-  //call current weather API
+  //calls current weather API
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
   axios.get(`${apiUrl}`).then(setApiResponse);
 
-  //call current time API
+  //calls current time API
   apiUrl = `https://api.weatherstack.com/current?access_key=92cbf662ab2ad251e53851afa1d47ac3&query=${city}`;
   axios.get(`${apiUrl}`).then(updateLocalTime);
 }
