@@ -180,7 +180,7 @@ function searchIconCity(event) {
 function search(city) {
   //calls current weather API
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
-  axios.get(`${apiUrl}`).then(setApiResponse);
+  axios.get(`${apiUrl}`).then(setApiResponse).catch(error);
 
   //calls current time API
   apiUrl = `https://api.weatherapi.com/v1/timezone.json?key=acc92b71f8734f78b34181730202112&q=${city}`;
@@ -195,6 +195,12 @@ function handleSubmit(event) {
   let city = cityInput.value;
   cityInput.value = "";
   search(city);
+}
+
+function error() {
+  if (error) {
+    alert(`😱🚨 No results found. Please check spelling and try again. `);
+  }
 }
 
 let cityInputForm = document.querySelector("#city-input-form");
