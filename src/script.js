@@ -221,4 +221,4 @@ cityIcons.forEach(function (cityIcon) {
   cityIcon.addEventListener("click", searchIconCity);
 });
 
-search("Seattle");
+search("New York");
